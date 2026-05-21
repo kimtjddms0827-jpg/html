@@ -91,7 +91,7 @@
             filter: brightness(1.15) contrast(1.05); 
         }
 
-        /* 미세 패턴 레이어 (영상이 밝아졌으므로 패턴 투명도를 0.1로 더 맑게 낮춤) */
+        /* 미세 패턴 레이어 */
         .video-overlay {
             position: absolute;
             top: 0;
@@ -100,12 +100,11 @@
             height: 100%;
             background-image: radial-gradient(rgba(0, 0, 0, 0.1) 15%, transparent 15%);
             background-size: 3px 3px;
-            background-color: rgba(11, 15, 25, 0.05); /* 차단막을 거의 제로에 가깝게 걷어냄 */
+            background-color: rgba(11, 15, 25, 0.05);
             background-blend-mode: overlay;
             z-index: 2;
         }
 
-        /* 영상이 많이 밝아졌기 때문에 글자가 있는 왼쪽 아래 영역만 부드러운 음영 그라데이션 적용 */
         .video-overlay::after {
             content: '';
             position: absolute;
@@ -122,7 +121,6 @@
             position: relative;
             z-index: 3;
             max-width: 700px;
-            /* 밝아진 영상 배경에 맞춰 글씨가 묻히지 않도록 이중 그림자 처리(고급 가독성 기법) */
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), 0 4px 20px rgba(0, 0, 0, 0.4);
         }
 
@@ -152,8 +150,8 @@
             font-weight: 600;
             border-radius: 4px;
             transition: transform 0.3s, background-color 0.3s;
-            text-shadow: none; /* 버튼 글씨는 그림자 제외 */
-            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3); /* 버튼 자체에 은은한 오렌지 광채 부여 */
+            text-shadow: none;
+            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
         }
 
         .cta-btn:hover {
@@ -222,7 +220,7 @@
             font-weight: 400;
         }
 
-        /* 🏅 신뢰 및 인증서 섹션 */
+        /* 🏅 신뢰 및 인증서 섹션 (수정완료) */
         .cert-title-sub {
             font-size: 20px;
             font-weight: 600;
@@ -232,13 +230,12 @@
 
         .cert-grid {
             display: grid;
-            /* 무조건 일렬로 4개가 서도록 설정 */
+            /* 가로로 4개가 쭈르륵 서도록 고정 */
             grid-template-columns: repeat(4, 1fr);
-            /* 칸 사이 간격을 살짝 좁혀서 가로 배치가 이쁘게 나오도록 조정 */
             gap: 20px; 
         }
 
-        /* 폰/태블릿(화면이 좁아질 때)에서도 글씨가 깨지지 않게 방지하는 스마트폰 대응 코드 */
+        /* 스마트폰/태블릿 반응형 대응 */
         @media (max-width: 1024px) {
             .cert-grid { grid-template-columns: repeat(2, 1fr); }
         }
@@ -250,7 +247,7 @@
             background-color: #0e1320;
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 20px 15px; /* 가로 일렬 정렬에 맞춰 패딩 최적화 */
+            padding: 20px 15px;
             text-align: center;
             transition: transform 0.3s, border-color 0.3s;
         }
@@ -262,7 +259,6 @@
 
         .cert-img-wrapper {
             width: 100%;
-            /* 💡 가로로 4개가 서기 때문에, 세로 높이를 기존 380px에서 260px로 줄여 날씬하게 정렬되도록 수정했습니다. */
             height: 260px;
             background-color: #1e293b;
             border-radius: 6px;
@@ -287,7 +283,7 @@
         }
 
         .cert-card h4 {
-            font-size: 16px; /* 가로 공간 확보를 위해 글씨 크기 최적화 */
+            font-size: 16px;
             font-weight: 700;
             color: #ffffff;
             margin-bottom: 8px;
@@ -296,7 +292,7 @@
         .cert-card p {
             font-size: 13px;
             color: var(--text-sub);
-            word-break: keep-all; /* 단어 단위로 줄바꿈되어 깔끔하게 표현 */
+            word-break: keep-all;
         }
 
         /* 제조 물품 (제품 소개) */
@@ -421,7 +417,7 @@
             </div>
         </div>
 
-       <h3 class="cert-title-sub">Proven Technology & Trust</h3>
+        <h3 class="cert-title-sub">Proven Technology & Trust</h3>
         <div class="cert-grid">
             <div class="cert-card">
                 <div class="cert-img-wrapper">
@@ -433,18 +429,18 @@
 
             <div class="cert-card">
                 <div class="cert-img-wrapper">
-                    <img src="image2.png" alt="벤처기업확인서">
+                    <img src="image2.png" alt="경영혁신형 중소기업 확인서">
                 </div>
-                <h4>벤처기업 인증</h4>
-                <p>중소벤처기업부 주관, 유체기계 및 펌프 제조 분야의 우수한 기술성 및 성장성 입증</p>
+                <h4>Main-Biz 인증</h4>
+                <p>경영 인프라 및 기술 혁신 역량을 검증받은 중소벤처기업부 지정 경영혁신형 기업</p>
             </div>
 
             <div class="cert-card">
                 <div class="cert-img-wrapper">
-                    <img src="image3.png" alt="경영혁신형 중소기업 확인서">
+                    <img src="image3.png" alt="한국펌프공업협동조합 조합원증">
                 </div>
-                <h4>Main-Biz 인증</h4>
-                <p>경영 인프라 및 기술 혁신 역량을 검증받은 중소벤처기업부 지정 경영혁신형 기업</p>
+                <h4>펌프조합 조합원</h4>
+                <p>한국펌프공업협동조합 정식 조합원으로서 공인된 유체기계 제조 인프라 신뢰성 확보</p>
             </div>
 
             <div class="cert-card">
